@@ -1,0 +1,315 @@
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat center center;
+}
+.icon-add{
+	background:url('icons/edit_add.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('icons/pencil.png') no-repeat center center;
+}
+.icon-clear{
+	background:url('icons/clear.png') no-repeat center center;
+}
+.icon-remove{
+	background:url('icons/edit_remove.png') no-repeat center center;
+}
+.icon-save{
+	background:url('icons/filesave.png') no-repeat center center;
+}
+.icon-cut{
+	background:url('icons/cut.png') no-repeat center center;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat center center;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat center center;
+}
+.icon-cancel{
+	background:url('icons/cancel.png') no-repeat center center;
+}
+.icon-reload{
+	background:url('icons/reload.png') no-repeat center center;
+}
+.icon-search{
+	background:url('icons/search.png') no-repeat center center;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat center center;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat center center;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat center center;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat center center;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat center center;
+}
+.icon-sum{
+	background:url('icons/sum.png') no-repeat center center;
+}
+.icon-tip{
+	background:url('icons/tip.png') no-repeat center center;
+}
+.icon-filter{
+	background:url('icons/filter.png') no-repeat center center;
+}
+.icon-man{
+	background:url('icons/man.png') no-repeat center center;
+}
+.icon-lock{
+	background:url('icons/lock.png') no-repeat center center;
+}
+.icon-unlock{
+	background:url('icons/unlock.png') no-repeat center center;
+}
+
+
+.icon-mini-add{
+	background:url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+	background:url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+	background:url('icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture{
+	background:url('icons/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart{
+	background:url('icons/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes{
+	background:url('icons/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart{
+	background:url('icons/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart{
+	background:url('icons/large_chart.png') no-repeat center center;
+}
+
+/*自定义--用户*/
+.icon-user{
+	background:url('icons/user.gif') no-repeat;
+}
+.icon-useradd{
+	background:url('icons/useradd.gif') no-repeat;
+}
+.icon-useredit{
+	background:url('icons/useredit.gif') no-repeat;
+}
+.icon-userdelete{
+	background:url('icons/userdelete.gif') no-repeat;
+}
+/*自定义--数据库*/
+.icon-db{
+	background:url('icons/db.gif') no-repeat;
+}
+.icon-dbadd{
+	background:url('icons/dbadd.gif') no-repeat;
+}
+.icon-dbedit{
+	background:url('icons/dbedit.gif') no-repeat;
+}
+.icon-dbdelete{
+	background:url('icons/dbdelete.gif') no-repeat;
+}
+
+/*自定义--标志旗*/
+.icon-flag{
+	background:url('icons/flag.gif') no-repeat;
+}
+.icon-flagadd{
+	background:url('icons/flagadd.gif') no-repeat;
+}
+.icon-flagedit{
+	background:url('icons/flagedit.gif') no-repeat;
+}
+.icon-flagdelete{
+	background:url('icons/flagdelete.gif') no-repeat;
+}
+
+/*自定义--标签*/
+.icon-tag{
+	background:url('icons/tag.gif') no-repeat;
+}
+.icon-tagadd{
+	background:url('icons/tagadd.gif') no-repeat;
+}
+.icon-tagedit{
+	background:url('icons/tagedit.gif') no-repeat;
+}
+.icon-tagdelete{
+	background:url('icons/tagdelete.gif') no-repeat;
+}
+
+/*自定义--联系手机*/
+.icon-contact{
+	background:url('icons/contact.gif') no-repeat;
+}
+.icon-contactadd{
+	background:url('icons/contactadd.gif') no-repeat;
+}
+.icon-contactedit{
+	background:url('icons/contactedit.gif') no-repeat;
+}
+.icon-contactdelete{
+	background:url('icons/contactdelete.gif') no-repeat;
+}
+
+/*自定义--音乐*/
+.icon-music{
+	background:url('icons/music.gif') no-repeat;
+}
+.icon-musicadd{
+	background:url('icons/musicadd.gif') no-repeat;
+}
+.icon-musicedit{
+	background:url('icons/musicedit.gif') no-repeat;
+}
+.icon-musicdelete{
+	background:url('icons/musicdelete.gif') no-repeat;
+}
+.icon-musicstop{
+	background:url('icons/musicstop.gif') no-repeat;
+}
+
+/*自定义--文件夹*/
+.icon-fold{
+	background:url('icons/fold.gif') no-repeat;
+}
+.icon-foldadd{
+	background:url('icons/foldadd.gif') no-repeat;
+}
+.icon-foldedit{
+	background:url('icons/foldedit.gif') no-repeat;
+}
+.icon-folddelete{
+	background:url('icons/folddelete.gif') no-repeat;
+}
+/*自定义--电子邮件*/
+.icon-email{
+	background:url('icons/email.gif') no-repeat;
+}
+.icon-emailadd{
+	background:url('icons/emailadd.gif') no-repeat;
+}
+.icon-emailedit{
+	background:url('icons/emailedit.gif') no-repeat;
+}
+.icon-emaildelete{
+	background:url('icons/emaildelete.gif') no-repeat;
+}
+/*自定义--图片*/
+.icon-image{
+	background:url('icons/image.gif') no-repeat;
+}
+.icon-imageadd{
+	background:url('icons/imageadd.gif') no-repeat;
+}
+.icon-imageedit{
+	background:url('icons/imageedit.gif') no-repeat;
+}
+.icon-imagedelete{
+	background:url('icons/imagedelete.gif') no-repeat;
+}
+/*自定义--电脑*/
+.icon-pc{
+	background:url('icons/pc.gif') no-repeat;
+}
+.icon-pcadd{
+	background:url('icons/pcadd.gif') no-repeat;
+}
+.icon-pcmove{
+	background:url('icons/pcmove.gif') no-repeat;
+}
+.icon-pcdelete{
+	background:url('icons/pcdelete.gif') no-repeat;
+}
+.icon-pcstop{
+	background:url('icons/pcstop.gif') no-repeat;
+}
+/*自定义--网络*/
+.icon-net{
+	background:url('icons/net.gif') no-repeat;
+}
+.icon-netadd{
+	background:url('icons/netadd.gif') no-repeat;
+}
+.icon-netmove{
+	background:url('icons/netmove.gif') no-repeat;
+}
+.icon-netedit{
+	background:url('icons/netedit.gif') no-repeat;
+}
+.icon-netdelete{
+	background:url('icons/netdelete.gif') no-repeat;
+}
+.icon-netstop{
+	background:url('icons/netstop.gif') no-repeat;
+}
+/*自定义--文档*/
+.icon-doc{
+	background:url('icons/doc.gif') no-repeat;
+}
+.icon-docadd{
+	background:url('icons/docadd.gif') no-repeat;
+}
+.icon-docedit{
+	background:url('icons/docedit.gif') no-repeat;
+}
+.icon-docdelete{
+	background:url('icons/docdelete.gif') no-repeat;
+}
+
+/*自定义--首页*/
+.icon-home{
+	background:url('icons/home.gif') no-repeat;
+}
+/*自定义--颜色*/
+.icon-color{
+	background:url('icons/color.gif') no-repeat;
+}
+/*自定义--提示信息*/
+.icon-information{
+	background:url('icons/information.gif') no-repeat;
+}
+/*自定义--声音*/
+.icon-voice{
+	background:url('icons/voice.gif') no-repeat;
+}
+/*自定义--显示/播放*/
+.icon-show{
+	background:url('icons/show.gif') no-repeat;
+}
+/*自定义--锁*/
+.icon-lock{
+	background:url('icons/lock.gif') no-repeat;
+}
+/*自定义--疑问*/
+.icon-question{
+	background:url('icons/question.gif') no-repeat;
+}
+
+/*自定义--应用程序*/
+.icon-application{
+	background:url('icons/appicon.gif') no-repeat;
+}
+
+/*自定义--下载*/
+.icon-download{
+	background:url('icons/download.png') no-repeat;
+}
+
+/*自定义--设置*/
+.icon-set{
+	background:url('icons/doing.gif') no-repeat;
+}
+

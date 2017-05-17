@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>newsCate</title>
+    <link rel="stylesheet" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" href="../../easyui/themes/default/easyui.css">
+    <link rel="stylesheet" href="../../css/base.css">
+
+</head>
+
+<body class="easyui-layout" style="margin:2px;">
+
+<div data-options="region:'west',title:'新闻分类目录'" style="width:200px;">
+</div>
+<div data-options="region:'center',title:'新闻分类列表'" style="padding:5px;background:#eee;">
+    <table id="categorys" class="easyui-datagrid" style="height:550px"
+           data-options="url:'../../controler/news.php?action=getcategorys',toolbar:tools,title:'新闻分类列表',iconCls:'icon-tag',method:'get'">
+        <thead>
+        <tr>
+            <th data-options="field:'22',checkbox:true,width:40"></th>
+            <th data-options="field:'CategoryID',width:60">分类编号</th>
+            <th data-options="field:'CategoryName',width:100">分类名称</th>
+            <th data-options="field:'LevelNo',width:60">等级</th>
+            <th data-options="field:'ParentCategoryID',width:60,align:'center'">父类编号</th>
+            <th data-options="field:'CreateTime',width:100">创建日期</th>
+            <th data-options="field:'op',width:70,align:'center',formatter:adminCategory">管理</th>
+        </tr>
+        </thead>
+    </table>
+
+
+</div>
+
+<div id="win" class="easyui-window" title="编辑用户信息" style="width:300px;height:250px"
+     data-options="iconCls:'icon-useredit',modal:true,collapsible:false,closed:true">
+    <div>用户名:<input type="text" id="CategoryID" /></div>
+    <div>姓名:<input type="text" id="CategoryName" /></div>
+    <div>注册日期:<input type="text" id="registerTime" /></div>
+</div>
+
+<script src="../../js/news.js"></script>
+<script src="../../easyui/jquery.min.js"></script>
+<script src="../../easyui/jquery.easyui.min.js"></script>
+<script src="../../easyui/common.js"></script>
+</body>
+</html>
