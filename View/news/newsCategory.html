@@ -40,6 +40,24 @@
 <script src="../../easyui/jquery.min.js"></script>
 <script src="../../easyui/jquery.easyui.min.js"></script>
 <script src="../../easyui/common.js"></script>
+<script>
+    var tools=[{
+        iconCls: 'icon-tagadd',
+        text:'添加新闻分类',
+        handler: function(){ }
+    },{
+        iconCls: 'icon-reload',
+        text:'刷新',
+        handler: function(){
+            $("#categorys").datagrid({url:'../../Controller/news.php?action=getcategorys'});
+        }
+    }];
+
+    function adminCategory(value,row,index)
+    {
+        return "<img onclick='editCategory("+index+")' src='../images/useredit.gif' style='margin-top:5px; cursor:pointer;' />&nbsp;&nbsp;<img onclick='deleteCategory("+index+")' src='../images/userdelete.gif'  style='margin-top:5px; cursor:pointer;' />"
+    }
+</script>
 <script src="../../js/news.js"></script>
 </body>
 </html>

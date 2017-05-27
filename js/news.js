@@ -5,22 +5,7 @@
     /*严格模式*/
     'use strict';
 
-    var tools=[{
-        iconCls: 'icon-tagadd',
-        text:'添加新闻分类',
-        handler: function(){ }
-    },{
-        iconCls: 'icon-reload',
-        text:'刷新',
-        handler: function(){
-            $("#categorys").datagrid({url:'../../business/news.php?action=getcategorys'});
-        }
-    }];
 
-    function adminCategory(value,row,index)
-    {
-        return "<img onclick='editCategory("+index+")' src='../images/useredit.gif' style='margin-top:5px; cursor:pointer;' />&nbsp;&nbsp;<img onclick='deleteCategory("+index+")' src='../images/userdelete.gif'  style='margin-top:5px; cursor:pointer;' />"
-    }
 
     function deleteCategory(index)
     {
