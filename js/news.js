@@ -5,8 +5,6 @@
     /*严格模式*/
     'use strict';
 
-
-
     function deleteCategory(index)
     {
         //如何获得需要被删除的用户名
@@ -53,4 +51,6 @@
         $("#CategoryName").val(row.CategoryName);
         $("#registerTime").val(row.registerTime);
     }
+
+
 })();
