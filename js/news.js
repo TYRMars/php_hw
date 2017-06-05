@@ -3,7 +3,18 @@
  */
 ;(function() {
     /*严格模式*/
-    'use strict';
+    var treedata = new Array();
+	
+	var categoryDate;
+	
+	$.ajax({
+		type:"POST",
+		dataType:"json",
+		async:false,
+		url:"",
+		success: function(msg){
+		}
+	});
 
     function deleteCategory(index)
     {
@@ -38,7 +49,6 @@
         });
     }
 
-
     function editCategory(index)
     {
         $("#win").window({closed:false});
@@ -51,6 +61,6 @@
         $("#CategoryName").val(row.CategoryName);
         $("#registerTime").val(row.registerTime);
     }
-
-
+	
+	
 })();

@@ -4,6 +4,15 @@
 ;(function() {
     /*严格模式*/
     'use strict';
+    var tools=[{
+        iconCls: 'icon-edit',
+        text:'编辑用户信息',
+        handler: function(){alert('edit')}
+    },{
+        iconCls: 'icon-help',
+        text:'帮助',
+        handler: function(){alert('help')}
+    }];
 
     function adminGoods(value,row,index)
     {

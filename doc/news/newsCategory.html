@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>newsCate</title>
+    <link rel="stylesheet" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" href="../../easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../js/common/jstree/themes/default/style.min.css">
+    <link rel="stylesheet" href="../../css/base.css">
+
+</head>
+
+<body class="easyui-layout" style="margin:2px;">
+
+<div id="tree"  data-options="region:'west',title:'新闻分类目录'" style="width:200px;">
+</div>
+
+<div data-options="region:'center',title:'新闻分类列表'" style="padding:5px;background:#eee;">
+    <table id="categorys" class="easyui-datagrid" style="height:550px" data-options="url:'../../controler/news.php?action=getcategorys',toolbar:tools,title:'新闻分类列表',iconCls:'icon-tag',method:'get'">
+        <thead>
+        <tr>
+            <th data-options="field:'22',checkbox:true,width:40"></th>
+            <th data-options="field:'CategoryID',width:60">分类编号</th>
+            <th data-options="field:'CategoryName',width:100">分类名称</th>
+            <th data-options="field:'LevelNo',width:60">等级</th>
+            <th data-options="field:'ParentCategoryID',width:60,align:'center'">父类编号</th>
+            <th data-options="field:'CreateTime',width:100">创建日期</th>
+            <th data-options="field:'op',width:70,align:'center',formatter:adminCategory">管理</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+
+<script src="../../easyui/jquery.min.js"></script>
+<script src="../../easyui/jquery.easyui.min.js"></script>
+<script src="../../js/common/jstree/jstree.min.js"></script>
+<script src="../../easyui/common.js"></script>
+<script src="../../js/news.js"></script>
+<script type="text/javascript">
+
+var tools=[{
+		iconCls: 'icon-tagadd',
+		text:'添加新闻分类',
+		handler: function(){ }
+	},{
+		iconCls: 'icon-reload',
+		text:'刷新',
+		handler: function(){
+			$("#categorys").datagrid({url:'../business/news.php?action=getcategorys'});
+			}
+	}];
+	
+function adminCategory(value,row,index)
+{
+	return "<img onclick='editCategory("+index+")' src='../images/useredit.gif' style='margin-top:5px; cursor:pointer;' />&nbsp;&nbsp;<img onclick='deleteCategory("+index+")' src='../images/userdelete.gif'  style='margin-top:5px; cursor:pointer;' />"
+}
+
+var treedata=[
+	{id:"1",text:"学校新闻",parent:"#",state:{opened:true},icon:'../img'},
+	{id:"2",text:"1",parent:"#",state:{opened:true},icon:'../img'},
+	{id:"3",text:"2",parent:"2",state:{opened:false},icon:'../img'},
+	{id:"4",text:"3",parent:"1",state:{opened:false},icon:'../img'}
+	];
+	$("#tree").jstree({core:{data:treedata}});
+</script>
+</body>
+</html>

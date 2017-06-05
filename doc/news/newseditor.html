@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/news.css">
+</head>
+<body>
+<div class="newscotent">
+    <div class="inputtext">
+        <p>新闻标题：<input id="news_title" type="text"/></p>
+        <p>副 标 题 ： <input id="news_two_title" type="text"/></p>
+        <p>原创作者：<input id="news_eiditer" type="text"/></p>
+        <p>所属分类：<select name="news_select" id="news_select" style="width: 155px;height: 20px"></select></p>
+        <p>新闻来源：<input id="newsfrom" type="text"/></p>
+        <p>来源链接：<input id="newsfromlist" type="text"/></p>
+        <p>发布日期：<input id="create_time" type="datetime"/></p>
+        <p>最后编辑：<input id="final_edite" type="datetime"/></p>
+    </div>
+    <div class="textedit">
+        <div id="editor"></div>
+    </div>
+    <input type="submit" id="news_submit" class="submit_button" text="提交新闻"/>
+</div>
+</body>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/wangeditor/release/wangEditor.min.js"></script>
+<script src="../../js/base.js"></script>
+<script>
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    editor.create()
+</script>
+</html>
