@@ -3,18 +3,58 @@
  */
 ;(function() {
     /*严格模式*/
-    var treedata = new Array();
-	
-	var categoryDate;
-	
-	$.ajax({
-		type:"POST",
-		dataType:"json",
-		async:false,
-		url:"",
-		success: function(msg){
-		}
-	});
+
+    //1 定义数据源
+    /*var treedata=[
+     {id:"1",text:"学校新闻",parent:"#",state:{opened:true},icon:'../images/add.png'},
+     {id:"4",text:"考试安排",parent:"2",state:{opened:false},icon:'../images/next.png'},
+     {id:"3",text:"媒体报导",parent:"1",state:{opened:false},icon:'../images/next.png'},
+     {id:"2",text:"教务新闻",parent:"#",state:{opened:true},icon:'../images/add.png'}
+     ];*/
+
+    //定义数据源数组
+    var treedata=new Array();
+    //定义新闻分类数据
+    var categoryData;
+    //将新闻分类信息提取出来
+    $.ajax(
+        {
+            type:"POST",
+            dataType:"json",
+            async:false,
+            url:"../controler/news.php?action=getNews",
+            success: function(msg)
+            {
+                categoryData=msg;
+            }
+        });
+    //将新闻分类数据的每个分类转化为树形节点数据
+    if(categoryData!=null&&categoryData.length>0)
+    {
+        //通过循环遍历将每个分类数据转化为树节点
+        for(var i=0;i<categoryData.length;i++)
+        {
+            var parentflag,openflag,iconflag;
+            if(categoryData[i].LevelNo==1)//一级目录
+            {
+                parentflag="#";
+                openflag=true;
+                iconflag='../images/add.png';
+            }
+            else
+            {
+                parentflag=categoryData[i].ParentCategoryID;
+                openflag=false;
+                iconflag='../images/next.png';
+            }
+
+            var treenode={id:categoryData[i].CategoryID,text:categoryData[i].CategoryName,parent:parentflag,state:{opened:openflag},icon:iconflag};
+
+            //将树形节点数据放入数据源数组
+            treedata.push(treenode);
+        }
+    }
+
 
     function deleteCategory(index)
     {

@@ -7,7 +7,8 @@
 		var news_submit = $('#news_submit');
 
 		news_submit.on("click",function(){
-			/*1.获取页面中各个编辑框的信息：Jquery
+			/*
+			1.获取页面中各个编辑框的信息：Jquery
 			2.判断标题和内容是否为空，如果为空提示错误：IF判断
 			3.异步提交请求，保存到数据库中：AJAX+php
 			*/

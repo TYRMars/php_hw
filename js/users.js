@@ -1,9 +1,6 @@
 /**
  * Created by zhangjianan on 2017/5/17.
  */
-;(function() {
-    /*严格模式*/
-    'use strict';
     var tools=[{
         iconCls: 'icon-edit',
         text:'编辑用户信息',
@@ -65,6 +62,3 @@
         $("#truename").val(row.truename);
         $("#registerTime").val(row.registerTime);
     }
-
-
-})();

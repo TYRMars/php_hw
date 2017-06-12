@@ -31,7 +31,6 @@
     </table>
 </div>
 
-
 <script src="../../easyui/jquery.min.js"></script>
 <script src="../../easyui/jquery.easyui.min.js"></script>
 <script src="../../js/common/jstree/jstree.min.js"></script>
@@ -56,12 +55,6 @@ function adminCategory(value,row,index)
 	return "<img onclick='editCategory("+index+")' src='../images/useredit.gif' style='margin-top:5px; cursor:pointer;' />&nbsp;&nbsp;<img onclick='deleteCategory("+index+")' src='../images/userdelete.gif'  style='margin-top:5px; cursor:pointer;' />"
 }
 
-var treedata=[
-	{id:"1",text:"学校新闻",parent:"#",state:{opened:true},icon:'../img'},
-	{id:"2",text:"1",parent:"#",state:{opened:true},icon:'../img'},
-	{id:"3",text:"2",parent:"2",state:{opened:false},icon:'../img'},
-	{id:"4",text:"3",parent:"1",state:{opened:false},icon:'../img'}
-	];
 	$("#tree").jstree({core:{data:treedata}});
 </script>
 </body>
