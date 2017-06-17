@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="easyui/themes/default/easyui.css">
+    <link rel="stylesheet" href="easyui/themes/icon.css">
+</head>
+<style>
+    .login{
+        padding: 0;
+        height: 600px;
+        width:  400px;
+        margin: 0 auto;
+    }
+    .login-check{
+        margin:0 auto;
+        width: 100px;
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <div class="login">
+        <div class="login-check">
+        <input type="text" id="username" /><br/>
+        <input type="password" id="password" /><br/>
+        <input type="submit" id="logincheck" onclick="logincheck();"/>
+        </div>
+    </div>
+</body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="easyui/jquery.easyui.min.js"></script>
+<script type="javascript">
+    function logincheck() {
+        var username = $('#username').val(),
+            password = $('#password').val();
+        if(username==""||password==""){
+            console.log(username)
+            $.messager.alert("错误提示","请输入用户名与密码","error");
+        }else {
+            $.ajax({
+                type:"POST",
+                asyn:true,
+                datatype:"text",
+                date:{username:username,password:password},
+                url:"business/user.php?action=logincheck",
+                success:function(msg){
+                    if(msg=='1'){
+                        window.location.href="index.html"
+                    }
+                    else if(msg=="0"){
+                        $.messager.alert("错误提示","用户名与密码不匹配","error")
+                    }
+                }
+            })
+        }
+    }
+</script>
+</html>
