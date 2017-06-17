@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jonathan Zhang
- * Date: 2017/6/17
- * Time: 16:01
- */
 /*获取请求类型*/
 $action = $_GET["action"];
 /*建立数据库连接*/
@@ -14,13 +8,11 @@ $pdo = new PDO($dsn,'root','');
 if($action=="logincheck"){
     $username = $_REQUEST["username"];
     $password = $_REQUEST["password"];
-    $sql="select * from systemuser WHERE username'".$username."'and password='".$password."'";
-    $rs=$pdo->query($sql);
-    if($rs->rowcount()>0){
+    $sql="select * from systemusers where username='".$username."'and password='".$password."'";
+    $rs=$pdo->query($sql); //保存查询结果到变量$rs
+    if($rs->rowcount()>0)
         echo '1';
-    }
-    else{
+    else
         echo '0';
-    }
 }
 ?>

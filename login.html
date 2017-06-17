@@ -22,30 +22,32 @@
 <body>
     <div class="login">
         <div class="login-check">
-        <input type="text" id="username" /><br/>
-        <input type="password" id="password" /><br/>
-        <input type="submit" id="logincheck" onclick="logincheck();"/>
+        <input name="username" type="text" id="username" /><br/>
+        <input name="password" type="password" id="password" /><br/>
+        <input type="submit" text="登录" id="check" />
         </div>
     </div>
 </body>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="easyui/jquery.easyui.min.js"></script>
-<script type="javascript">
+<script type="text/javascript">
+    var check = $('#check');
+    check.on('click',logincheck);
     function logincheck() {
         var username = $('#username').val(),
             password = $('#password').val();
         if(username==""||password==""){
-            console.log(username)
+            console.log(username);
             $.messager.alert("错误提示","请输入用户名与密码","error");
         }else {
             $.ajax({
                 type:"POST",
                 asyn:true,
-                datatype:"text",
-                date:{username:username,password:password},
+                dataType:"text",
+                data:{username:username,password:password},
                 url:"business/user.php?action=logincheck",
                 success:function(msg){
-                    if(msg=='1'){
+                    if(msg=="1"){
                         window.location.href="index.html"
                     }
                     else if(msg=="0"){
