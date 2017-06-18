@@ -20,5 +20,12 @@ if($action=="logincheck"){
         echo '1';
     else
         echo '0';
+}else if($action=="getUsers"){
+    $pdo->query("set names utf8");
+    $sql="select * from systemusers";
+    $rs=$pdo->query($sql);
+    $row=$rs->fetchAll(PDO::FETCH_OBJ);
+    header("Content-Type:application/json");
+    echo json_encode($row);
 }
 ?>

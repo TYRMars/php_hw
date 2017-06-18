@@ -5,15 +5,18 @@
     <title>新闻分类管理</title>
     <link rel="stylesheet" href="../../easyui/themes/default/easyui.css">
     <link rel="stylesheet" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" href="../../js/jstree/themes/default/style.min.css">
     <style>
         body{
             margin: 0;
             padding: 0;
         }
     </style>
+
 </head>
 <body class="easyui-layout">
     <div data-options="region:'west',title:'新闻分类目录',iconCls:'icon-show'" style="width:200px;">
+        <div id="tree"></div>
     </div>
     <div data-options="region:'center',title:'新闻分类列表',iconCls:'icon-tag'" style="background:#eee;">
         <table class="easyui-datagrid"  id="dbnews" data-options="url:'../../business/news.php?action=getNews',toolbar:tools,method:'get'">
@@ -36,13 +39,13 @@
             <span>新闻名：<input disabled="disabled" type="text"  id="CategoryName"  /></span>
         </div>
         <div>
-            <span>栏目：<input   type="text"  id="ParentCategoryID"  /></span>
+            <span>栏目：<input type="text" id="ParentCategoryID"  /></span>
         </div>
         <div>
-            <span>上传时间：<input   type="text"  id="CreateTime"  /></span>
+            <span>上传时间：<input  type="text" id="CreateTime"  /></span>
         </div>
         <div>
-            <span>等级：<input   type="text"  id="LevelNo"  /></span>
+            <span>等级：<input  type="text" id="LevelNo"  /></span>
         </div>
         <div>
             <span><input  type="submit" value="保存更新" onclick="saveNews()"/></span>
@@ -51,6 +54,7 @@
 </body>
 <script type="text/javascript" src="../../easyui/jquery.min.js"></script>
 <script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/jstree/jstree.min.js"></script>
 <script type="text/javascript" src="../../easyui/common.js"></script>
 <script type="text/javascript">
     //tools加载
@@ -78,5 +82,43 @@
         $("#ParentCategoryID").val(row.ParentCategoryID);
         $("#CreateTime").val(row.CreateTime);
     }
+    //jstree
+    var treedata = new Array(),
+        categoryData;
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        async:false,
+        url:"../../business/news.php?action=getNews",
+        success:function (msg) {
+            categoryData=msg;
+        }
+    });
+    if(categoryData!=null && categoryData.length>0){
+        for(var i=0;i<categoryData.length;i++){
+            var parentflag,openflag,iconflag;
+            if(categoryData[i].LevelNo==1){
+                parentflag="#";
+                openflag=true;
+                iconflag='../../images/add.png'
+            }
+            else{
+                parentflag=categoryData[i].ParentCategoryID;
+                openflag=false;
+                iconflag='../../images/next.png';
+            }
+
+            var treenode = {
+                id:categoryData[i].CategoryID,
+                text:categoryData[i].CategoryName,
+                parent:parentflag,
+                state:{opened:openflag},
+                icon:iconflag
+            };
+
+            treedata.push(treenode);
+        }
+    }
+    $("#tree").jstree({core:{data:treedata}});
 </script>
 </html>

@@ -2,9 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>新闻分类管理</title>
+    <link rel="stylesheet" href="../../easyui/themes/default/easyui.css">
+    <link rel="stylesheet" href="../../easyui/themes/icon.css">
+    <link rel="stylesheet" href="../../js/jstree/themes/default/style.min.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 
+</head>
+<body class="easyui-layout">
+<div data-options="region:'center',title:'用户列表',iconCls:'icon-tag'" style="background:#eee;">
+    <table class="easyui-datagrid"  id="users" data-options="url:'../../business/user.php?action=getUsers',toolbar:tools,method:'get'">
+        <thead>
+        <tr>
+            <th data-options="field:'11',checkbox:true,width:40">选择</th>
+            <th data-options="field:'username',width:100">用户名称</th>
+            <th data-options="field:'truename',width:100">真实姓名</th>
+            <th data-options="field:'reisterTime',width:60">注册日期</th>
+            <th data-options="field:'op',width:70,align:'center',formatter:adminUser">管理</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<div id="win" class="easyui-window" title="编辑新闻信息" style="width:300px;height:250px" data-options="iconCls:'icon-useredit',modal:true,collapsible:false,closed:true">
+    <div>
+        <span>用户名称<input  type="text"  id="username"  /></span>
+    </div>
+    <div>
+        <span>真实姓名<input type="text" id="truename"  /></span>
+    </div>
+    <div>
+        <span>注册日期<input  type="text" id="reisterTime"  /></span>
+    </div>
+    <div>
+        <span><input  type="submit" value="保存更新" onclick="saveUser()"/></span>
+    </div>
+</div>
 </body>
-</html>
+<script type="text/javascript" src="../../easyui/jquery.min.js"></script>
+<script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../easyui/common.js"></script>
+<script type="text/javascript">
+    var tools=[{
+        iconCls:'icon-edit',
+        text:'编辑用户',
+        handler:function () {
+            alert('edit');
+        }
+    },{
+        iconCls:'icon-help',
+        text:'帮助',
+        handler:function () {
+            $.messager.alert('帮助','不会就别乱动，乱搞系统会坏的！！！','error')
+        }
+    }];
+
+    function adminUser(value,row,index) {
+        return"<img onclick='editUser("+index+")' src='../../images/useredit.gif' style='margin-top: 5px cursor:pointer;' />&nbsp;&nbsp;<img onclick='deleteUser("+index+")' src='../../images/userdelete.gif' style='margin-top: 5px cursor:pointer;' />";
+    }
+</script>
