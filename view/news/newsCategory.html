@@ -2,9 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>新闻分类管理</title>
+    <link rel="stylesheet" href="../../easyui/themes/default/easyui.css">
+    <link rel="stylesheet" href="../../easyui/themes/icon.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
-<body>
-
+<body class="easyui-layout">
+    <div data-options="region:'west',title:'新闻分类目录',iconCls:'icon-show'" style="width:200px;">
+    </div>
+    <div data-options="region:'center',title:'新闻分类列表',iconCls:'icon-tag'" style="background:#eee;">
+        <table class="easyui-datagrid"  id="dbnews" data-options="url:'../../business/news.php?action=getNews',toolbar:tools,method:'get'">
+            <thead>
+            <tr>
+                <th data-options="field:'22',checkbox:true,width:40"></th>
+                <th data-options="field:'CategoryID',width:60">分类编号</th>
+                <th data-options="field:'CategoryName',width:100">分类名称</th>
+                <th data-options="field:'LevelNo',width:60">等级</th>
+                <th data-options="field:'ParentCategoryID',width:60,align:'center'">父类编号</th>
+                <th data-options="field:'CreateTime',width:100">创建日期</th>
+                <th data-options="field:'op',width:70,align:'center',formatter:adminCategory">管理</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <!--新闻编辑-->
+    <div id="win" class="easyui-window" title="编辑新闻信息" style="width:300px;height:250px" data-options="iconCls:'icon-useredit',modal:true,collapsible:false,closed:true">
+        <div>
+            <span>新闻名：<input disabled="disabled" type="text"  id="CategoryName"  /></span>
+        </div>
+        <div>
+            <span>栏目：<input   type="text"  id="ParentCategoryID"  /></span>
+        </div>
+        <div>
+            <span>上传时间：<input   type="text"  id="CreateTime"  /></span>
+        </div>
+        <div>
+            <span>等级：<input   type="text"  id="LevelNo"  /></span>
+        </div>
+        <div>
+            <span><input  type="submit" value="保存更新" onclick="saveNews()"/></span>
+        </div>
+    </div>
 </body>
+<script type="text/javascript" src="../../easyui/jquery.min.js"></script>
+<script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../easyui/common.js"></script>
+<script type="text/javascript">
+    //tools加载
+    var tools=[{
+        iconCls:'icon-edit',
+        text:'编辑新闻信息',
+        handler:editNews},
+        {
+        iconCls:'icon-help',
+        text:'帮助',
+        handler:function () {
+            $.messager.alert('帮助','不会就别乱动，乱搞系统会坏的！！！','error')
+        }
+    }];
+    function adminCategory(value,row,index)
+    {
+        return "<img  onclick='editNews("+index+")' src='../../images/useredit.gif' style='margin-top:4px; cursor:pointer;' />&nbsp;<img   onclick='deleteNews("+index+")' src='../../images/userdelete.gif'  style='margin-top:4px; cursor:pointer;' />";
+    }
+    function editNews(index) {
+        $("#win").window({closed:false});
+        $("#dbnews").datagrid("unselectAll");
+        $("#dbnews").datagrid("selectRow",index);
+        var  row =	$("#dbnews").datagrid("getSelected");
+        $("#CategoryName").val(row.CategoryName);
+        $("#ParentCategoryID").val(row.ParentCategoryID);
+        $("#CreateTime").val(row.CreateTime);
+    }
+</script>
 </html>

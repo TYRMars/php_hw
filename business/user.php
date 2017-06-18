@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Jonathan Zhang
+ * Date: 2017/6/18
+ * Time: 11:46
+ */
 /*获取请求类型*/
 $action = $_GET["action"];
 /*建立数据库连接*/

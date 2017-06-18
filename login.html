@@ -8,23 +8,32 @@
 </head>
 <style>
     .login{
-        padding: 0;
-        height: 600px;
-        width:  400px;
-        margin: 0 auto;
+        top: 200px;
+        position:relative;
+        width:480px;
+        height:240px;
+        margin:0 auto;
+        background: #0092DC;
     }
     .login-check{
-        margin:0 auto;
-        width: 100px;
-        padding-top: 100px;
+        position:inherit;
+        top: 25%;
+        text-align: center;
     }
+    .index-button{
+        background-color: aqua;
+        border: 0;
+        width: 60px;
+    }
+
 </style>
 <body>
     <div class="login">
         <div class="login-check">
-        <input name="username" type="text" id="username" /><br/>
-        <input name="password" type="password" id="password" /><br/>
-        <input type="submit" text="登录" id="check" />
+            <h3>厦门工学院管理系统</h3>
+            <p>用户 <input name="username" type="text" id="username" /></p>
+            <p>密码 <input name="password" type="password" id="password" /></p>
+            <p><input class="index-button" type="submit" value="登录" id="check" /></p>
         </div>
     </div>
 </body>
